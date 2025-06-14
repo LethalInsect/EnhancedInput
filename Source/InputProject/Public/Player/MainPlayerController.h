@@ -22,8 +22,13 @@ public:
 	UGeneralSubsystem* GeneralSubsystem;
 	UPROPERTY()
 	UEnhancedInputLocalPlayerSubsystem* InputSubsystem;
+
+	//you can add more InputMappingContexts here if you need to,
+	//or remake this to an InputmappingContext Array and just loop over all of them
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
 	UInputMappingContext* IMCDefault;
+
+	//Gets all mappable Keys and sends them to the GeneralSubsystem
 	UFUNCTION()
 	void InitializeKeyBinds();
 };

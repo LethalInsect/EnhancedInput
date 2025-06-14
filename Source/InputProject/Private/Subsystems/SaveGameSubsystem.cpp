@@ -40,26 +40,20 @@ FKey USaveGameSubsystem::GetCurrentKey(FString ActionName, bool IsController)
 	if(IsController)
 	{
 		Key = UserSettingsSaveGame->SavedControllerKeys.Find(ActionName);
-		if(Key)
-		{
-			UE_LOG(Custom_Testing, Error, TEXT("Action Name: %s , Key: %s  IS BEING SAVED"), *ActionName, *Key->GetDisplayName().ToString())
-		}
 		return *Key;
 	}
 	else
 	{
 		Key = UserSettingsSaveGame->SavedKeyboardKeys.Find(ActionName);
-		if(Key)
-		{
-			UE_LOG(Custom_Testing, Error, TEXT("Action Name: %s , Key: %s  IS BEING Loaded"), *ActionName, *Key->GetDisplayName().ToString())
-		}
 		return *Key;
 	}
 }
 
 void USaveGameSubsystem::SaveKey(FString ActionName, bool IsController, FKey Key)
 {
-	UE_LOG(Custom_Testing, Warning, TEXT("Action Name: %s , Key: %s  IS BEING SAVED"), *ActionName, *Key.GetDisplayName().ToString())
+	UE_LOG(Custom_Testing, Log, TEXT("Action Name: %s , Key: %s  IS BEING SAVED"), *ActionName, *Key.GetDisplayName().ToString())
+
+	//Key gets saved to the Map
 	if(IsController)
 	{
 		UserSettingsSaveGame->SavedControllerKeys.Add(ActionName, Key);

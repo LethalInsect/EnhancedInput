@@ -23,6 +23,7 @@ class INPUTPROJECT_API USaveGameSubsystem : public UGameInstanceSubsystem
 	
 public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+	//Called after every subsystem is created
 	void PostSubsystemInitialization(UMainGameInstance* MyGameInstance);
 	UPROPERTY(BlueprintAssignable, Category = Miscellaneous)
 	FOnSaveGameLoaded OnSaveGameLoaded;
@@ -31,6 +32,7 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	bool DoUserSettingsExist = false;
 
+	//gets saved key
 	FKey GetCurrentKey(FString ActionName, bool IsController);
 	void SaveKey(FString ActionName, bool IsController, FKey Key);
 	

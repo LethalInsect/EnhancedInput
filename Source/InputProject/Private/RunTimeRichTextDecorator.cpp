@@ -3,11 +3,17 @@
 
 #include "RunTimeRichTextDecorator.h"
 
+/// 
+/// @param Tag name of the image
+/// @param Brush brush with the image
 void URunTimeRichTextDecorator::AddImageBrush(FName Tag, const FSlateBrush& Brush)
 {
 	RuntimeImageMap.Add(Tag, Brush);
 }
-
+/// Adds the signature of images to text so, that the rich text can render them.
+/// @param Template Original Text to Format
+/// @param Args Names of images to add
+/// @return Formatted Text
 FText URunTimeRichTextDecorator::FormatText(const FText& Template, const TArray<FText>& Args)
 {
 	TArray<FFormatArgumentValue> FormatArgs;

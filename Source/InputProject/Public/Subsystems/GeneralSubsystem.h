@@ -81,7 +81,8 @@ public:
 	TMap<UInputAction*, FInputActionData> GetMappableInputActionData();
 	UFUNCTION(BlueprintCallable)
 	void GetInputIcons(UInputAction* InputAction, UTexture2D*& KeyboardIcon, UTexture2D*& ControllerIcon);
-	
+	UFUNCTION(BlueprintCallable)
+	void EnableUINavigation(bool ShouldEnable);
 	UPROPERTY(BlueprintAssignable)
 	FOnKeyInitialized OnKeyInitialized;
 	UPROPERTY(BlueprintReadOnly)

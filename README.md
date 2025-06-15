@@ -29,6 +29,7 @@ Important things to note:
 - If an icon is purple, that means the key is not in the icon datatable (i didnt had Time for every key and only limited myself on the central part of the keyboard)
 - if something doesnt load correctly, then delete the savegame file and try again.
 
+# Set up
 
 Enhanced Input Action:
 If you want that your key is picked up by this system you will need to add the player mappable key settings, otherwise this input action will be ignored.
@@ -37,7 +38,23 @@ If you want that your key is picked up by this system you will need to add the p
 The Name and Display name should be the same and are used to fill the name of the key inside the remapp widget.
 the category will sort the keys and put every key from the same category together.
 
+[Here](https://dev.epicgames.com/community/learning/tutorials/oWne/unreal-engine-add-images-dynamically-to-rich-text-over-code) I added a Tutorial on how my rich text works.
 
+## Codex
+![image](https://github.com/user-attachments/assets/613f4c5f-7314-4631-8782-3f86aec8cfff)
+
+I made it so, that you can declare an image with {index} and put it anywhere in the text and also as many as you want.
+The InputAction has already a key for both input devices, but the Key only have on key. Therefore i made it so, that the first key is keyboard and the second controller.
+These keys are stored sequentially, where the pattern repeats for each action.
+- The even index (0, 2, 4, ...) holds the keyboard key for an action.
+- The odd index (1, 3, 5, ...) holds the controller key for the same action.
+
+So for every pair of elements:
+- The first is the keyboard key for Action N.
+- The second is the controller key for Action N.
+
+It first loop over the InputAction Array and then over the Key Array. The Index for the images continues from the input action array to the key array.
+for example: InputAction[0] = {0} -> Key[0] & Key[1] = {1}
 
 
 
